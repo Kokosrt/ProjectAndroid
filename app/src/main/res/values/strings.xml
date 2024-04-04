@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">prAndriod</string>
+    <string name="pass_error">string</string>
+    <string name="log_pass_error">string</string>
 </resources>
