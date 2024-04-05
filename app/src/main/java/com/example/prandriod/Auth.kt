@@ -18,6 +18,8 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         val sharedPreferences = getSharedPreferences(Const.MY_SHARE_PREFERENCE, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
         findViewById<Button>(R.id.btn_authorisation).setOnClickListener {
             val login = findViewById<EditText>(R.id.btn_login).text.toString()
             val password = findViewById<EditText>(R.id.btn_password).text.toString()
@@ -25,7 +27,10 @@ class AuthActivity : AppCompatActivity() {
             val savedPassword = sharedPreferences.getString(Const.PASSWORD, "")
 
             if (login == savedLogin && password == savedPassword) {
-                startActivity(Intent(this, MenuActivity::class.java))
+                val intent = Intent(this, MenuActivity::class.java)
+                editor.putString(Const.IS_AUTH, true.toString())
+                editor.apply()
+                startActivity(intent)
                 finish()
             } else {
                 Toast.makeText(this, getString(R.string.log_pass_error), Toast.LENGTH_SHORT).show()

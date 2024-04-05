@@ -18,7 +18,7 @@
             android:name=".CaliberAdapter"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".GunActivity"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
